@@ -9,10 +9,12 @@ Here you will find the following bible versions in sql, sqlite, xml, csv, and js
 - King James Version (KJV)
 - Webster's Bible (WBT)
 - World English Bible (WEB)
-- Young's Literal Translation (YLT)
+- Latin Vulgate (LV)
+- Douay Rheims - Challoner (DR)
+- Jerusalem Bibe (JB)
+- New Catholiic Bible (NCB) [Work in Progress]
 
-
-All included Bible translations are in the public domain. 
+All included Bible translations are in the public domain.
 
 *Please let me know if any verses/text were inaccurately transferred in conversion.*
 
@@ -30,15 +32,15 @@ Verse ID System:
 
 Each verse is accessed by a unique key, the combination of the BOOK+CHAPTER+VERSE id.
 
-Example: 
+Example:
 
 **Genesis 1:1 (Genesis chapter 1, verse 1) = 01001001 (01 001 001)**
 
-**Exodus 2:3 (Exodus chapter 2, verse 3) = 02002003 (02 002 003)** 
+**Exodus 2:3 (Exodus chapter 2, verse 3) = 02002003 (02 002 003)**
 
 The verse-id system is used for faster, simplified queries. For instance:
 
-***01001001*** - ***02001005*** would capture all verses between **Genesis 1:1** through **Exodus 1:5**. 
+***01001001*** - ***02001005*** would capture all verses between **Genesis 1:1** through **Exodus 1:5**.
 
 Written simply:
 
@@ -59,7 +61,7 @@ While its expected that your programs would use the verse-id system, *book #, ch
 
 A Valuable Cross-Reference Table
 -------------------
-A very special and valuable addition to these databases is the extensive cross-reference table. It was created from the project at http://www.openbible.info/labs/cross-references/. See .txt version included from http://www.openbible.info website. Its extremely useful in bible study for discovering related scriptures. For any given verse, you simply query ***vid*** (verse id), and a list of rows will be returned. Each of those rows has a rank (r) for relevance, start-verse (sv), and end verse (ev) if there is one. 
+A very special and valuable addition to these databases is the extensive cross-reference table. It was created from the project at http://www.openbible.info/labs/cross-references/. See .txt version included from http://www.openbible.info website. Its extremely useful in bible study for discovering related scriptures. For any given verse, you simply query ***vid*** (verse id), and a list of rows will be returned. Each of those rows has a rank (r) for relevance, start-verse (sv), and end verse (ev) if there is one.
 
 Basic Web Interaction
 -------------------
@@ -249,6 +251,30 @@ SQL Database Layout:
       <td></td>
       <td></td>
       <td>Genre ID</td>
+   </tr>
+   <tr>
+      <td>g</td>
+      <td>tinyint(3)</td>
+      <td>NO</td>
+      <td></td>
+      <td></td>
+      <td>Genre ID</td>
+   </tr>
+   <tr>
+      <td>church</td>
+      <td>tinyint(3)</td>
+      <td>NO</td>
+      <td></td>
+      <td>0</td>
+      <td>1=Catholic, 2=Anglican, 3=Both, 4=Neither</td>
+   </tr>
+   <tr>
+      <td>differences</td>
+      <td>tinyint(3)</td>
+      <td>NO</td>
+      <td></td>
+      <td>0</td>
+      <td>flag of anglican/catholic versions are structurally different, ie Psalms</td>
    </tr>
 </table>
 <br />
