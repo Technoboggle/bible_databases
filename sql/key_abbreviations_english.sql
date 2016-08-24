@@ -1,454 +1,462 @@
--- phpMyAdmin SQL Dump
--- version 4.0.6deb1
--- http://www.phpmyadmin.net
---
--- Host: localhost
--- Generation Time: Aug 11, 2014 at 12:09 AM
--- Server version: 5.5.37-0ubuntu0.13.10.1
--- PHP Version: 5.5.3-1ubuntu2.6
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
---
--- Database: `bible`
---
+/*!40101 SET SQL_MODE=''*/;
 
--- --------------------------------------------------------
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`bibles` /*!40100 DEFAULT CHARACTER SET latin7 */;
 
---
--- Table structure for table `key_abbreviations_english`
---
+USE `bibles`;
+
+/*Table structure for table `key_abbreviations_english` */
+
 DROP TABLE IF EXISTS `key_abbreviations_english`;
+
 CREATE TABLE `key_abbreviations_english` (
   `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Abbreviation ID',
   `a` varchar(255) NOT NULL,
   `b` smallint(5) unsigned NOT NULL COMMENT 'ID of book that is abbreviated',
   `p` tinyint(1) NOT NULL DEFAULT '0' COMMENT 'Whether an abbreviation is the primary one for the book',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='A table mapping book abbreviations to the book they refer to' AUTO_INCREMENT=410 ;
+) ENGINE=InnoDB AUTO_INCREMENT=430 DEFAULT CHARSET=latin1 COMMENT='A table mapping book abbreviations to the book they refer to';
 
---
--- Dumping data for table `key_abbreviations_english`
---
+/*Data for the table `key_abbreviations_english` */
 
-INSERT INTO `key_abbreviations_english` (`id`, `a`, `b`, `p`) VALUES
-(1, 'Gen', 1, 1),
-(2, 'Ge', 1, 0),
-(3, 'Gn', 1, 0),
-(4, 'Exo', 2, 1),
-(5, 'Ex', 2, 0),
-(6, 'Exod', 2, 0),
-(7, 'Lev', 3, 1),
-(8, 'Le', 3, 0),
-(9, 'Lv', 3, 0),
-(10, 'Num', 4, 1),
-(11, 'Nu', 4, 0),
-(12, 'Nm', 4, 0),
-(13, 'Nb', 4, 0),
-(14, 'Deut', 5, 1),
-(15, 'Dt', 5, 0),
-(16, 'Josh', 6, 1),
-(17, 'Jos', 6, 0),
-(18, 'Jsh', 6, 0),
-(19, 'Judg', 7, 1),
-(20, 'Jdg', 7, 0),
-(21, 'Jg', 7, 0),
-(22, 'Jdgs', 7, 0),
-(23, 'Rth', 8, 1),
-(24, 'Ru', 8, 0),
-(25, '1 Sam', 9, 1),
-(26, '1 Sa', 9, 0),
-(27, '1Samuel', 9, 0),
-(28, '1S', 9, 0),
-(29, 'I Sa', 9, 0),
-(30, '1 Sm', 9, 0),
-(31, '1Sa', 9, 0),
-(32, 'I Sam', 9, 0),
-(33, '1Sam', 9, 0),
-(34, 'I Samuel', 9, 0),
-(35, '1st Samuel', 9, 0),
-(36, 'First Samuel', 9, 0),
-(37, '2 Sam', 10, 1),
-(38, '2 Sa', 10, 0),
-(39, '2S', 10, 0),
-(40, 'II Sa', 10, 0),
-(41, '2 Sm', 10, 0),
-(42, '2Sa', 10, 0),
-(43, 'II Sam', 10, 0),
-(44, '2Sam', 10, 0),
-(45, 'II Samuel', 10, 0),
-(46, '2Samuel', 10, 0),
-(47, '2nd Samuel', 10, 0),
-(48, 'Second Samuel', 10, 0),
-(49, '1 Kgs', 11, 1),
-(50, '1 Ki', 11, 0),
-(51, '1K', 11, 0),
-(52, 'I Kgs', 11, 0),
-(53, '1Kgs', 11, 0),
-(54, 'I Ki', 11, 0),
-(55, '1Ki', 11, 0),
-(56, 'I Kings', 11, 0),
-(57, '1Kings', 11, 0),
-(58, '1st Kgs', 11, 0),
-(59, '1st Kings', 11, 0),
-(60, 'First Kings', 11, 0),
-(61, 'First Kgs', 11, 0),
-(62, '1Kin', 11, 0),
-(63, '2 Kgs', 12, 1),
-(64, '2 Ki', 12, 0),
-(65, '2K', 12, 0),
-(66, 'II Kgs', 12, 0),
-(67, '2Kgs', 12, 0),
-(68, 'II Ki', 12, 0),
-(69, '2Ki', 12, 0),
-(70, 'II Kings', 12, 0),
-(71, '2Kings', 12, 0),
-(72, '2nd Kgs', 12, 0),
-(73, '2nd Kings', 12, 0),
-(74, 'Second Kings', 12, 0),
-(75, 'Second Kgs', 12, 0),
-(76, '2Kin', 12, 0),
-(77, '1 Chron', 13, 1),
-(78, '1 Ch', 13, 0),
-(79, 'I Ch', 13, 0),
-(80, '1Ch', 13, 0),
-(81, '1 Chr', 13, 0),
-(82, 'I Chr', 13, 0),
-(83, '1Chr', 13, 0),
-(84, 'I Chron', 13, 0),
-(85, '1Chron', 13, 0),
-(86, 'I Chronicles', 13, 0),
-(87, '1Chronicles', 13, 0),
-(88, '1st Chronicles', 13, 0),
-(89, 'First Chronicles', 13, 0),
-(90, '2 Chron', 14, 1),
-(91, '2 Ch', 14, 0),
-(92, 'II Ch', 14, 0),
-(93, '2Ch', 14, 0),
-(94, 'II Chr', 14, 0),
-(95, '2Chr', 14, 0),
-(96, 'II Chron', 14, 0),
-(97, '2Chron', 14, 0),
-(98, 'II Chronicles', 14, 0),
-(99, '2Chronicles', 14, 0),
-(100, '2nd Chronicles', 14, 0),
-(101, 'Second Chronicles', 14, 0),
-(102, 'Ezra', 15, 1),
-(103, 'Ezr', 15, 0),
-(104, 'Neh', 16, 1),
-(105, 'Ne', 16, 0),
-(106, 'Esth', 17, 1),
-(107, 'Es', 17, 0),
-(108, 'Job', 18, 1),
-(109, 'Job', 18, 0),
-(110, 'Jb', 18, 0),
-(111, 'Pslm', 19, 1),
-(112, 'Ps', 19, 0),
-(113, 'Psalms', 19, 0),
-(114, 'Psa', 19, 0),
-(115, 'Psm', 19, 0),
-(116, 'Pss', 19, 0),
-(117, 'Prov', 20, 1),
-(118, 'Pr', 20, 0),
-(119, 'Prv', 20, 0),
-(120, 'Eccles', 21, 1),
-(121, 'Ec', 21, 0),
-(122, 'Qoh', 21, 0),
-(123, 'Qoheleth', 21, 0),
-(124, 'Song', 22, 1),
-(125, 'So', 22, 0),
-(126, 'Canticle of Canticles', 22, 0),
-(127, 'Canticles', 22, 0),
-(128, 'Song of Songs', 22, 0),
-(129, 'SOS', 22, 0),
-(130, 'Isa', 23, 1),
-(131, 'Is', 23, 0),
-(132, 'Jer', 24, 1),
-(133, 'Je', 24, 0),
-(134, 'Jr', 24, 0),
-(135, 'Lam', 25, 1),
-(136, 'La', 25, 0),
-(137, 'Ezek', 26, 1),
-(138, 'Eze', 26, 0),
-(139, 'Ezk', 26, 0),
-(140, 'Dan', 27, 1),
-(141, 'Da', 27, 0),
-(142, 'Dn', 27, 0),
-(143, 'Hos', 28, 1),
-(144, 'Ho', 28, 0),
-(145, 'Joel', 29, 1),
-(146, 'Joe', 29, 0),
-(147, 'Jl', 29, 0),
-(148, 'Amos', 30, 1),
-(149, 'Am', 30, 0),
-(150, 'Obad', 31, 1),
-(151, 'Ob', 31, 0),
-(152, 'Jnh', 32, 1),
-(153, 'Jon', 32, 0),
-(154, 'Micah', 33, 1),
-(155, 'Mic', 33, 0),
-(156, 'Nah', 34, 1),
-(157, 'Na', 34, 0),
-(158, 'Hab', 35, 1),
-(159, 'Zeph', 36, 1),
-(160, 'Zep', 36, 0),
-(161, 'Zp', 36, 0),
-(162, 'Haggai', 37, 1),
-(163, 'Hag', 37, 0),
-(164, 'Hg', 37, 0),
-(165, 'Zech', 38, 1),
-(166, 'Zec', 38, 0),
-(167, 'Zc', 38, 0),
-(168, 'Mal', 39, 1),
-(169, 'Mal', 39, 0),
-(170, 'Ml', 39, 0),
-(171, 'Matt', 40, 1),
-(172, 'Mt', 40, 0),
-(173, 'Mrk', 41, 1),
-(174, 'Mk', 41, 0),
-(175, 'Mr', 41, 0),
-(176, 'Luk', 42, 1),
-(177, 'Lk', 42, 0),
-(178, 'John', 43, 1),
-(179, 'Jn', 43, 0),
-(180, 'Jhn', 43, 0),
-(181, 'Acts', 44, 1),
-(182, 'Ac', 44, 0),
-(183, 'Rom', 45, 1),
-(184, 'Ro', 45, 0),
-(185, 'Rm', 45, 0),
-(186, '1 Cor', 46, 1),
-(187, '1 Co', 46, 0),
-(188, 'I Co', 46, 0),
-(189, '1Co', 46, 0),
-(190, 'I Cor', 46, 0),
-(191, '1Cor', 46, 0),
-(192, 'I Corinthians', 46, 0),
-(193, '1Corinthians', 46, 0),
-(194, '1st Corinthians', 46, 0),
-(195, 'First Corinthians', 46, 0),
-(196, '2 Cor', 47, 1),
-(197, '2 Co', 47, 0),
-(198, 'II Co', 47, 0),
-(199, '2Co', 47, 0),
-(200, 'II Cor', 47, 0),
-(201, '2Cor', 47, 0),
-(202, 'II Corinthians', 47, 0),
-(203, '2Corinthians', 47, 0),
-(204, '2nd Corinthians', 47, 0),
-(205, 'Second Corinthians', 47, 0),
-(206, 'Gal', 48, 1),
-(207, 'Ga', 48, 0),
-(208, 'Ephes', 49, 1),
-(209, 'Eph', 49, 0),
-(210, 'Phil', 50, 1),
-(211, 'Php', 50, 0),
-(212, 'Col', 51, 1),
-(213, 'Col', 51, 0),
-(214, '1 Thess', 52, 1),
-(215, '1 Th', 52, 0),
-(216, 'I Th', 52, 0),
-(217, '1Th', 52, 0),
-(218, 'I Thes', 52, 0),
-(219, '1Thes', 52, 0),
-(220, 'I Thess', 52, 0),
-(221, '1Thess', 52, 0),
-(222, 'I Thessalonians', 52, 0),
-(223, '1Thessalonians', 52, 0),
-(224, '1st Thessalonians', 52, 0),
-(225, 'First Thessalonians', 52, 0),
-(226, '2 Thess', 53, 1),
-(227, '2 Th', 53, 0),
-(228, 'II Th', 53, 0),
-(229, '2Th', 53, 0),
-(230, 'II Thes', 53, 0),
-(231, '2Thes', 53, 0),
-(232, 'II Thess', 53, 0),
-(233, '2Thess', 53, 0),
-(234, 'II Thessalonians', 53, 0),
-(235, '2Thessalonians', 53, 0),
-(236, '2nd Thessalonians', 53, 0),
-(237, 'Second Thessalonians', 53, 0),
-(238, '1 Tim', 54, 1),
-(239, '1 Ti', 54, 0),
-(240, 'I Ti', 54, 0),
-(241, '1Ti', 54, 0),
-(242, 'I Tim', 54, 0),
-(243, '1Tim', 54, 0),
-(244, 'I Timothy', 54, 0),
-(245, '1Timothy', 54, 0),
-(246, '1st Timothy', 54, 0),
-(247, 'First Timothy', 54, 0),
-(248, '2 Tim', 55, 1),
-(249, '2 Ti', 55, 0),
-(250, 'II Ti', 55, 0),
-(251, '2Ti', 55, 0),
-(252, 'II Tim', 55, 0),
-(253, '2Tim', 55, 0),
-(254, 'II Timothy', 55, 0),
-(255, '2Timothy', 55, 0),
-(256, '2nd Timothy', 55, 0),
-(257, 'Second Timothy', 55, 0),
-(258, 'Titus', 56, 1),
-(259, 'Tit', 56, 0),
-(260, 'Philem', 57, 1),
-(261, 'Phm', 57, 0),
-(262, 'Hebrews', 58, 1),
-(263, 'Heb', 58, 0),
-(264, 'James', 59, 1),
-(265, 'Jas', 59, 0),
-(266, 'Jm', 59, 0),
-(267, '1 Pet', 60, 1),
-(268, '1 Pe', 60, 0),
-(269, 'I Pe', 60, 0),
-(270, '1Pe', 60, 0),
-(271, 'I Pet', 60, 0),
-(272, '1Pet', 60, 0),
-(273, 'I Pt', 60, 0),
-(274, '1 Pt', 60, 0),
-(275, '1Pt', 60, 0),
-(276, 'I Peter', 60, 0),
-(277, '1Peter', 60, 0),
-(278, '1st Peter', 60, 0),
-(279, 'First Peter', 60, 0),
-(280, '2 Pet', 61, 1),
-(281, '2 Pe', 61, 0),
-(282, 'II Pe', 61, 0),
-(283, '2Pe', 61, 0),
-(284, 'II Pet', 61, 0),
-(285, '2Pet', 61, 0),
-(286, 'II Pt', 61, 0),
-(287, '2 Pt', 61, 0),
-(288, '2Pt', 61, 0),
-(289, 'II Peter', 61, 0),
-(290, '2Peter', 61, 0),
-(291, '2nd Peter', 61, 0),
-(292, 'Second Peter', 61, 0),
-(293, '1 John', 62, 1),
-(294, '1 Jn', 62, 0),
-(295, 'I Jn', 62, 0),
-(296, '1Jn', 62, 0),
-(297, 'I Jo', 62, 0),
-(298, '1Jo', 62, 0),
-(299, 'I Joh', 62, 0),
-(300, '1Joh', 62, 0),
-(301, 'I Jhn', 62, 0),
-(302, '1 Jhn', 62, 0),
-(303, '1Jhn', 62, 0),
-(304, 'I John', 62, 0),
-(305, '1John', 62, 0),
-(306, '1st John', 62, 0),
-(307, 'First John', 62, 0),
-(308, '2 John', 63, 1),
-(309, '2 Jn', 63, 0),
-(310, 'II Jn', 63, 0),
-(311, '2Jn', 63, 0),
-(312, 'II Jo', 63, 0),
-(313, '2Jo', 63, 0),
-(314, 'II Joh', 63, 0),
-(315, '2Joh', 63, 0),
-(316, 'II Jhn', 63, 0),
-(317, '2 Jhn', 63, 0),
-(318, '2Jhn', 63, 0),
-(319, 'II John', 63, 0),
-(320, '2John', 63, 0),
-(321, '2nd John', 63, 0),
-(322, 'Second John', 63, 0),
-(323, '3 John', 64, 1),
-(324, '3 Jn', 64, 0),
-(325, 'III Jn', 64, 0),
-(326, '3Jn', 64, 0),
-(327, 'III Jo', 64, 0),
-(328, '3Jo', 64, 0),
-(329, 'III Joh', 64, 0),
-(330, '3Joh', 64, 0),
-(331, 'III Jhn', 64, 0),
-(332, '3 Jhn', 64, 0),
-(333, '3Jhn', 64, 0),
-(334, 'III John', 64, 0),
-(335, '3John', 64, 0),
-(336, '3rd John', 64, 0),
-(337, 'Third John', 64, 0),
-(338, 'Jude', 65, 1),
-(339, 'Jud', 65, 0),
-(340, 'Rev', 66, 1),
-(341, 'Re', 66, 0),
-(342, 'The Revelation', 66, 0),
-(343, 'Genesis', 1, 1),
-(344, 'Exodus', 2, 1),
-(345, 'Leviticus', 3, 1),
-(346, 'Numbers', 4, 1),
-(347, 'Deuteronomy', 5, 1),
-(348, 'Joshua', 6, 1),
-(349, 'Judges', 7, 1),
-(350, 'Ruth', 8, 1),
-(351, '1 Samuel', 9, 1),
-(352, '2 Samuel', 10, 1),
-(353, '1 Kings', 11, 1),
-(354, '2 Kings', 12, 1),
-(355, '1 Chronicles', 13, 1),
-(356, '2 Chronicles', 14, 1),
-(357, 'Ezra', 15, 1),
-(358, 'Nehemiah', 16, 2),
-(359, 'Esther', 17, 2),
-(360, 'Job', 18, 1),
-(361, 'Psalms', 19, 1),
-(362, 'Psalm', 19, 1),
-(363, 'Proverbs', 20, 1),
-(364, 'Ecclesiastes', 21, 1),
-(365, 'Song of Solomon', 22, 1),
-(366, 'Isaiah', 23, 1),
-(367, 'Jeremiah', 24, 1),
-(368, 'Lamentations', 25, 1),
-(369, 'Ezekiel', 26, 1),
-(370, 'Daniel', 27, 1),
-(371, 'Hosea', 28, 1),
-(372, 'Joel', 29, 1),
-(373, 'Amos', 30, 1),
-(374, 'Obadiah', 31, 1),
-(375, 'Jonah', 32, 1),
-(376, 'Micah', 33, 1),
-(377, 'Nahum', 34, 1),
-(378, 'Habakkuk', 35, 1),
-(379, 'Zephaniah', 36, 1),
-(380, 'Haggai', 37, 1),
-(381, 'Zechariah', 38, 1),
-(382, 'Malachi', 39, 1),
-(383, 'Matthew', 40, 1),
-(384, 'Mark', 41, 1),
-(385, 'Luke', 42, 1),
-(386, 'John', 43, 1),
-(387, 'Acts', 44, 1),
-(388, 'Romans', 45, 1),
-(389, '1 Corinthians', 46, 1),
-(390, '2 Corinthians', 47, 1),
-(391, 'Galatians', 48, 1),
-(392, 'Ephesians', 49, 1),
-(393, 'Philippians', 50, 1),
-(394, 'Colossians', 51, 1),
-(395, '1 Thessalonians', 52, 1),
-(396, '2 Thessalonians', 53, 1),
-(397, '1 Timothy', 54, 1),
-(398, '2 Timothy', 55, 1),
-(399, 'Titus', 56, 1),
-(400, 'Philemon', 57, 1),
-(401, 'Hebrews', 58, 1),
-(402, 'James', 59, 1),
-(403, '1 Peter', 60, 1),
-(404, '2 Peter', 61, 1),
-(405, '1 John', 62, 1),
-(406, '2 John', 63, 1),
-(407, '3 John', 64, 1),
-(408, 'Jude', 65, 1),
-(409, 'Revelation', 66, 1);
+LOCK TABLES `key_abbreviations_english` WRITE;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (1,'Gen',1,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (2,'Ge',1,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (3,'Gn',1,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (4,'Exo',2,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (5,'Ex',2,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (6,'Exod',2,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (7,'Lev',3,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (8,'Le',3,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (9,'Lv',3,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (10,'Num',4,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (11,'Nu',4,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (12,'Nm',4,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (13,'Nb',4,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (14,'Deut',5,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (15,'Dt',5,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (16,'Josh',6,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (17,'Jos',6,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (18,'Jsh',6,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (19,'Judg',7,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (20,'Jdg',7,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (21,'Jg',7,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (22,'Jdgs',7,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (23,'Rth',8,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (24,'Ru',8,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (25,'1 Sam',9,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (26,'1 Sa',9,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (27,'1Samuel',9,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (28,'1S',9,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (29,'I Sa',9,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (30,'1 Sm',9,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (31,'1Sa',9,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (32,'I Sam',9,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (33,'1Sam',9,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (34,'I Samuel',9,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (35,'1st Samuel',9,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (36,'First Samuel',9,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (37,'2 Sam',10,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (38,'2 Sa',10,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (39,'2S',10,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (40,'II Sa',10,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (41,'2 Sm',10,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (42,'2Sa',10,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (43,'II Sam',10,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (44,'2Sam',10,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (45,'II Samuel',10,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (46,'2Samuel',10,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (47,'2nd Samuel',10,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (48,'Second Samuel',10,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (49,'1 Kgs',11,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (50,'1 Ki',11,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (51,'1K',11,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (52,'I Kgs',11,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (53,'1Kgs',11,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (54,'I Ki',11,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (55,'1Ki',11,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (56,'I Kings',11,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (57,'1Kings',11,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (58,'1st Kgs',11,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (59,'1st Kings',11,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (60,'First Kings',11,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (61,'First Kgs',11,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (62,'1Kin',11,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (63,'2 Kgs',12,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (64,'2 Ki',12,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (65,'2K',12,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (66,'II Kgs',12,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (67,'2Kgs',12,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (68,'II Ki',12,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (69,'2Ki',12,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (70,'II Kings',12,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (71,'2Kings',12,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (72,'2nd Kgs',12,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (73,'2nd Kings',12,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (74,'Second Kings',12,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (75,'Second Kgs',12,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (76,'2Kin',12,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (77,'1 Chron',13,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (78,'1 Ch',13,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (79,'I Ch',13,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (80,'1Ch',13,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (81,'1 Chr',13,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (82,'I Chr',13,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (83,'1Chr',13,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (84,'I Chron',13,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (85,'1Chron',13,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (86,'I Chronicles',13,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (87,'1Chronicles',13,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (88,'1st Chronicles',13,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (89,'First Chronicles',13,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (90,'2 Chron',14,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (91,'2 Ch',14,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (92,'II Ch',14,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (93,'2Ch',14,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (94,'II Chr',14,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (95,'2Chr',14,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (96,'II Chron',14,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (97,'2Chron',14,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (98,'II Chronicles',14,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (99,'2Chronicles',14,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (100,'2nd Chronicles',14,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (101,'Second Chronicles',14,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (102,'Ezra',15,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (103,'Ezr',15,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (104,'Neh',16,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (105,'Ne',16,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (106,'Esth',19,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (107,'Es',19,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (108,'Job',20,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (109,'Job',20,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (110,'Jb',20,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (111,'Pslm',21,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (112,'Ps',21,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (113,'Psalms',21,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (114,'Psa',21,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (115,'Psm',21,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (116,'Pss',21,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (117,'Prov',22,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (118,'Pr',22,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (119,'Prv',22,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (120,'Eccles',23,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (121,'Ec',23,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (122,'Qoh',23,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (123,'Qoheleth',23,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (124,'Song',24,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (125,'So',24,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (126,'Canticle of Canticles',24,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (127,'Canticles',24,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (128,'Song of Songs',24,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (129,'SOS',24,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (130,'Isa',27,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (131,'Is',27,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (132,'Jer',28,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (133,'Je',28,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (134,'Jr',28,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (135,'Lam',29,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (136,'La',29,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (137,'Ezek',31,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (138,'Eze',31,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (139,'Ezk',31,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (140,'Dan',32,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (141,'Da',32,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (142,'Dn',32,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (143,'Hos',33,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (144,'Ho',33,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (145,'Joel',34,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (146,'Joe',34,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (147,'Jl',34,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (148,'Amos',35,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (149,'Am',35,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (150,'Obad',36,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (151,'Ob',36,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (152,'Jnh',37,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (153,'Jon',37,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (154,'Micah',38,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (155,'Mic',38,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (156,'Nah',39,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (157,'Na',39,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (158,'Hab',40,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (159,'Zeph',41,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (160,'Zep',41,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (161,'Zp',41,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (162,'Haggai',42,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (163,'Hag',42,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (164,'Hg',42,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (165,'Zech',43,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (166,'Zec',43,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (167,'Zc',43,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (168,'Mal',44,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (169,'Mal',44,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (170,'Ml',44,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (171,'Matt',47,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (172,'Mt',47,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (173,'Mrk',48,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (174,'Mk',48,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (175,'Mr',48,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (176,'Luk',49,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (177,'Lk',49,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (178,'John',50,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (179,'Jn',50,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (180,'Jhn',50,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (181,'Acts',51,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (182,'Ac',51,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (183,'Rom',52,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (184,'Ro',52,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (185,'Rm',52,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (186,'1 Cor',53,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (187,'1 Co',53,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (188,'I Co',53,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (189,'1Co',53,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (190,'I Cor',53,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (191,'1Cor',53,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (192,'I Corinthians',53,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (193,'1Corinthians',53,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (194,'1st Corinthians',53,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (195,'First Corinthians',53,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (196,'2 Cor',54,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (197,'2 Co',54,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (198,'II Co',54,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (199,'2Co',54,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (200,'II Cor',54,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (201,'2Cor',54,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (202,'II Corinthians',54,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (203,'2Corinthians',54,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (204,'2nd Corinthians',54,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (205,'Second Corinthians',54,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (206,'Gal',55,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (207,'Ga',55,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (208,'Ephes',56,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (209,'Eph',56,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (210,'Phil',57,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (211,'Php',57,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (212,'Col',58,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (213,'Col',58,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (214,'1 Thess',59,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (215,'1 Th',59,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (216,'I Th',59,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (217,'1Th',59,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (218,'I Thes',59,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (219,'1Thes',59,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (220,'I Thess',59,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (221,'1Thess',59,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (222,'I Thessalonians',59,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (223,'1Thessalonians',59,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (224,'1st Thessalonians',59,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (225,'First Thessalonians',59,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (226,'2 Thess',60,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (227,'2 Th',60,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (228,'II Th',60,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (229,'2Th',60,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (230,'II Thes',60,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (231,'2Thes',60,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (232,'II Thess',60,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (233,'2Thess',60,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (234,'II Thessalonians',60,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (235,'2Thessalonians',60,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (236,'2nd Thessalonians',60,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (237,'Second Thessalonians',60,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (238,'1 Tim',61,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (239,'1 Ti',61,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (240,'I Ti',61,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (241,'1Ti',61,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (242,'I Tim',61,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (243,'1Tim',61,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (244,'I Timothy',61,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (245,'1Timothy',61,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (246,'1st Timothy',61,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (247,'First Timothy',61,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (248,'2 Tim',62,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (249,'2 Ti',62,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (250,'II Ti',62,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (251,'2Ti',62,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (252,'II Tim',62,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (253,'2Tim',62,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (254,'II Timothy',62,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (255,'2Timothy',62,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (256,'2nd Timothy',62,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (257,'Second Timothy',62,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (258,'Titus',63,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (259,'Tit',63,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (260,'Philem',64,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (261,'Phm',64,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (262,'Hebrews',65,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (263,'Heb',65,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (264,'James',66,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (265,'Jas',66,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (266,'Jm',66,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (267,'1 Pet',67,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (268,'1 Pe',67,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (269,'I Pe',67,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (270,'1Pe',67,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (271,'I Pet',67,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (272,'1Pet',67,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (273,'I Pt',67,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (274,'1 Pt',67,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (275,'1Pt',67,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (276,'I Peter',67,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (277,'1Peter',67,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (278,'1st Peter',67,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (279,'First Peter',67,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (280,'2 Pet',68,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (281,'2 Pe',68,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (282,'II Pe',68,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (283,'2Pe',68,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (284,'II Pet',68,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (285,'2Pet',68,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (286,'II Pt',68,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (287,'2 Pt',68,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (288,'2Pt',68,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (289,'II Peter',68,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (290,'2Peter',68,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (291,'2nd Peter',68,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (292,'Second Peter',68,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (293,'1 John',69,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (294,'1 Jn',69,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (295,'I Jn',69,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (296,'1Jn',69,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (297,'I Jo',69,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (298,'1Jo',69,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (299,'I Joh',69,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (300,'1Joh',69,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (301,'I Jhn',69,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (302,'1 Jhn',69,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (303,'1Jhn',69,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (304,'I John',69,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (305,'1John',69,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (306,'1st John',69,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (307,'First John',69,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (308,'2 John',70,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (309,'2 Jn',70,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (310,'II Jn',70,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (311,'2Jn',70,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (312,'II Jo',70,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (313,'2Jo',70,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (314,'II Joh',70,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (315,'2Joh',70,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (316,'II Jhn',70,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (317,'2 Jhn',70,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (318,'2Jhn',70,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (319,'II John',70,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (320,'2John',70,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (321,'2nd John',70,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (322,'Second John',70,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (323,'3 John',71,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (324,'3 Jn',71,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (325,'III Jn',71,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (326,'3Jn',71,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (327,'III Jo',71,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (328,'3Jo',71,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (329,'III Joh',71,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (330,'3Joh',71,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (331,'III Jhn',71,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (332,'3 Jhn',71,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (333,'3Jhn',71,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (334,'III John',71,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (335,'3John',71,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (336,'3rd John',71,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (337,'Third John',71,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (338,'Jude',72,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (339,'Jud',72,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (340,'Rev',73,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (341,'Re',73,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (342,'The Revelation',73,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (343,'Genesis',1,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (344,'Exodus',2,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (345,'Leviticus',3,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (346,'Numbers',4,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (347,'Deuteronomy',5,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (348,'Joshua',6,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (349,'Judges',7,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (350,'Ruth',8,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (351,'1 Samuel',9,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (352,'2 Samuel',10,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (353,'1 Kings',11,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (354,'2 Kings',12,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (355,'1 Chronicles',13,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (356,'2 Chronicles',14,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (357,'Ezra',15,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (358,'Nehemiah',16,2);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (359,'Esther',19,2);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (360,'Job',20,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (361,'Psalms',21,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (362,'Psalm',21,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (363,'Proverbs',22,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (364,'Ecclesiastes',23,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (365,'Song of Solomon',24,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (366,'Isaiah',27,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (367,'Jeremiah',28,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (368,'Lamentations',29,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (369,'Ezekiel',31,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (370,'Daniel',32,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (371,'Hosea',33,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (372,'Joel',34,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (373,'Amos',35,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (374,'Obadiah',36,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (375,'Jonah',37,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (376,'Micah',38,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (377,'Nahum',39,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (378,'Habakkuk',40,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (379,'Zephaniah',41,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (380,'Haggai',42,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (381,'Zechariah',43,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (382,'Malachi',44,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (383,'Matthew',47,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (384,'Mark',48,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (385,'Luke',49,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (386,'John',50,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (387,'Acts',51,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (388,'Romans',52,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (389,'1 Corinthians',53,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (390,'2 Corinthians',54,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (391,'Galatians',55,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (392,'Ephesians',56,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (393,'Philippians',57,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (394,'Colossians',58,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (395,'1 Thessalonians',59,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (396,'2 Thessalonians',60,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (397,'1 Timothy',61,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (398,'2 Timothy',62,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (399,'Titus',63,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (400,'Philemon',64,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (401,'Hebrews',65,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (402,'James',66,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (403,'1 Peter',67,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (404,'2 Peter',68,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (405,'1 John',69,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (406,'2 John',70,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (407,'3 John',71,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (408,'Jude',72,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (409,'Revelation',73,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (410,'Tobias',17,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (411,'Tob',17,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (412,'To',17,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (413,'Judith',18,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (414,'Jdt',18,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (415,'Wisdom',25,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (416,'Wis',25,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (417,'W',25,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (418,'Sirach',26,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (419,'Sir',26,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (420,'Baruch',30,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (421,'Bar',30,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (422,'1 Maccabees',45,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (423,'1 Mac',45,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (424,'I Mac',45,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (425,'I Macabees',45,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (426,'2 Maccabees',46,1);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (427,'2 Mac',46,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (428,'II Mac',46,0);
+insert  into `key_abbreviations_english`(`id`,`a`,`b`,`p`) values (429,'II Macabees',46,0);
+
+UNLOCK TABLES;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
